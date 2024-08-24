@@ -70,6 +70,20 @@ body {
   padding-top: 120px;
   padding-bottom: 120px;
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .logo,
 .logo:visited {
   font-family: "Raleway", sans-serif;
@@ -181,6 +195,7 @@ body {
     ),
     url(../images/img-name.jpg);
   max-width: 1440px;
+  margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -345,7 +360,7 @@ body {
   background-color: var(--primary-color-dark);
 }
 .bg-social {
-  fill: #f4f4fd;
+  fill: var(--color-light);
 }
 
 .portfolio-section-title {
@@ -400,7 +415,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #f4f4fd;
+  color: var(--color-light);
   background-color: var(--primary-color);
   padding: 40px 32px;
   height: 100%;
@@ -450,7 +465,8 @@ body {
   color: var(--color-light);
   max-width: 264px;
 }
-.footer-social-title {
+.footer-social-title,
+.footer-subscribe-title {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -485,5 +501,174 @@ body {
   background-color: #31d0aa;
 }
 .footer-bg-social {
-  fill: #f4f4fd;
+  fill: var(--color-light);
+}
+
+.footer-subscribe {
+  margin-left: 80px;
+}
+.form-subscribe-email {
+  display: flex;
+  gap: 24px;
+}
+
+.subscribe-button {
+  padding: 8px 24px;
+  height: 40px;
+  min-width: unset;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.subscribe-email-input {
+  font-size: 12px;
+  width: 264px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid var(--color-white);
+  box-shadow: 0px 4px 4px 0px #00000026;
+  padding: 8px 16px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.subscribe-email-input::placeholder {
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+}
+
+/* FORM MODAL */
+.modal-backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #2e2f4266;
+  /* visibility: hidden; */
+  z-index: 999;
+}
+
+.modal-backdrop.is-open {
+  visibility: initial;
+}
+
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-white);
+  border-radius: 4px;
+  width: 400px;
+  min-height: 500px;
+  padding: 24px;
+}
+.close-modal-button {
+  border: 1px solid #0000001a;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  display: block;
+  margin-left: auto;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-modal-button:hover {
+  background-color: var(--primary-color-dark);
+  border: 1px solid var(--primary-color-dark);
+}
+.close-modal-button:hover .close-modal-button-bg {
+  fill: var(--color-white);
+}
+
+.form-title {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.form-label {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  color: var(--color-helper-text);
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #2e2f4266;
+  margin-bottom: 8px;
+  padding: 8px 8px 8px 38px;
+  font-size: 14px;
+}
+.form-input:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+.form-input:focus + .form-label-icon-box .form-input-icon {
+  fill: var(--primary-color);
+}
+
+.form-label-icon-box {
+  position: absolute;
+  top: 32px;
+  left: 16px;
+}
+.form-textarea {
+  width: 100%;
+  height: 120px;
+  border-radius: 4px;
+  border: 1px solid #2e2f4266;
+  margin-bottom: 16px;
+  padding: 8px 8px 8px 16px;
+  font-size: 14px;
+  resize: none;
+}
+
+.form-textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.04em;
+  color: #2e2f4266;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+.terms-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+.form-label-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.form-label-checkbox-box {
+  margin-right: 8px;
+}
+.form-checkbox-icon {
+  fill: transparent;
+  stroke: #2e2f4266;
+}
+
+.form-checkbox:checked + .form-label-checkbox-box .form-click-icon {
+  display: inline-block;
+}
+
+.form-checkbox:checked + .form-label-checkbox-box .form-checkbox-icon {
+  display: none;
+}
+
+.form-click-icon {
+  display: none;
 }
